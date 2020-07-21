@@ -14,6 +14,9 @@ import (
 	"os"
 )
 
+/**
+从终端中读取多行，当按下 control + d 时停止
+*/
 func main() {
 	counts := make(map[string]int)
 	input := bufio.NewScanner(os.Stdin)

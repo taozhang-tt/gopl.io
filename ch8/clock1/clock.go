@@ -20,7 +20,7 @@ func main() {
 		log.Fatal(err)
 	}
 	for {
-		conn, err := listener.Accept()
+		conn, err := listener.Accept()	//这是一个阻塞，直到收到连接请求才会有返回并进行下一步
 		if err != nil {
 			log.Print(err) // e.g., connection aborted
 			continue
@@ -32,7 +32,7 @@ func main() {
 func handleConn(c net.Conn) {
 	defer c.Close()
 	for {
-		_, err := io.WriteString(c, time.Now().Format("15:04:05\n"))
+		_, err := io.WriteString(c, time.Now().Format("15:04:05\n"))	//net.Conn 满足 io.Writer 接口，可以直接向其写入
 		if err != nil {
 			return // e.g., client disconnected
 		}

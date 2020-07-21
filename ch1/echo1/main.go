@@ -11,7 +11,9 @@ import (
 	"fmt"
 	"os"
 )
-
+/**
+os.Args[index] 读取命令行参数，且 os.Args[0] 是被执行的文件
+*/
 func main() {
 	var s, sep string
 	for i := 1; i < len(os.Args); i++ {
